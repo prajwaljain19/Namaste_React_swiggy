@@ -34069,6 +34069,7 @@ const RestaurantCard = (props)=>{
     const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, deliveryTime } = resData?.info;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "m-4 p-4 w-[250px] rounde-lg bg-gray-50 hover:bg-gray-200",
+        npm: true,
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                 className: "rounded-lg",
