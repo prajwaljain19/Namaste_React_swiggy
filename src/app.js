@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./componets/Header";
 import Body from "./componets/Body";
@@ -13,11 +13,12 @@ import { lazy } from "react";
   const Grocery = lazy(() => import("./componets/Grocery"));
 
   const AppLayout = () => {
-  return (
+    
+    return (
     <div className="app">
       <Header />
       <Outlet />
-    </div>
+      </div>
   );
 };
 

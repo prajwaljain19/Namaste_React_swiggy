@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { ShimmerPostList } from "react-shimmer-effects";
@@ -13,9 +13,12 @@ const Body = () => {
   const[filteredrestaurant, setfilteredrestaurant] = useState([]);
 
   const [searchText, setsearchText] = useState("");
- 
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+
 
   //whenever state variables update, react trigger reconciliation cycle(re-render the component)
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -69,7 +72,7 @@ const Body = () => {
           className="px-4 py-2"
           onClick={() => {
             const filteredList = listOfRestaurants.filter(
-                res => res.info.avgRating > 3
+                res => data.cards[2].card.card.gridElements.infoWithStyle.restaurants.info.avgRating > 3
               );
               setListOfRestraunt(filteredList);
           }}> Top Rated Restaurants</button>
@@ -81,7 +84,11 @@ const Body = () => {
         key={restaurant.info.id} 
         to= {"/restaurants/" + restaurant.info.id}
         >
-          <RestaurantCard resData={restaurant} />
+          {restaurant.info.promoted ? (
+            <RestaurantCardPromoted resData={restaurant} />
+          ) : (
+            <RestaurantCard resData={restaurant} />
+          )}
           </Link> 
         ))}
 
