@@ -6,9 +6,9 @@ const ItemList = ({ items, dummy }) => {
 
   const dispatch = useDispatch();
   
-  const handleAddItem = () => {
+  const handleAddItem = (item) => {
     //Dispatch an action
-    dispatch((addItems("pizza")));
+    dispatch(addItems(item));         
   };
   
   return (
@@ -22,8 +22,8 @@ const ItemList = ({ items, dummy }) => {
             <div className="py-2">
               <span className="font-bold">{item?.card?.info?.name}</span>
               <div className="absolute">
-                <button className=" p-2 my-2 mx-16 rounded-lg bg-white shadow-lg"
-                onClick={handleAddItem}>
+                <button className=" p-2 my-2 mx-16 bg-white hover:bg-gray-100 rounded-lg shadow-lg "
+                onClick={() => handleAddItem(item)}>
                   Add +
                 </button>
               </div>
