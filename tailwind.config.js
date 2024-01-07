@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      gridAutoColumns: {
+        '2fr': 'minmax(0, 2fr)',
+      }
+    },
   },
   plugins: [],
 }

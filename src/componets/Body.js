@@ -2,7 +2,7 @@ import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { ShimmerPostList } from "react-shimmer-effects";
-import {Link} from "react-router-dom";
+import {Link, json} from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlinestatus";
 
 
@@ -72,9 +72,10 @@ const Body = () => {
           className="px-4 py-2"
           onClick={() => {
             const filteredList = listOfRestaurants.filter(
-                res => data.cards[2].card.card.gridElements.infoWithStyle.restaurants.info.avgRating > 3
+                res => res.info.avgRating > 4.2
               );
-              setListOfRestraunt(filteredList);
+              console.log(filteredList)
+              setfilteredrestaurant(filteredList);
           }}> Top Rated Restaurants</button>
       </div>
       <div className="flex flex-wrap">

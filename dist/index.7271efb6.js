@@ -35056,8 +35056,8 @@ const Body = ()=>{
         fetchData();
     }, []);
     const fetchData = async ()=>{
-        const data1 = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-        const json = await data1.json();
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const json = await data.json();
         console.log("apiData", json);
         // optional chaining
         setListOfRestraunt(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
@@ -35124,8 +35124,9 @@ const Body = ()=>{
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         className: "px-4 py-2",
                         onClick: ()=>{
-                            const filteredList = listOfRestaurants.filter((res)=>data.cards[2].card.card.gridElements.infoWithStyle.restaurants.info.avgRating > 3);
-                            setListOfRestraunt(filteredList);
+                            const filteredList = listOfRestaurants.filter((res)=>res.info.avgRating > 4.2);
+                            console.log(filteredList);
+                            setfilteredrestaurant(filteredList);
                         },
                         children: " Top Rated Restaurants"
                     }, void 0, false, {
@@ -35147,23 +35148,23 @@ const Body = ()=>{
                             resData: restaurant
                         }, void 0, false, {
                             fileName: "src/componets/Body.js",
-                            lineNumber: 88,
+                            lineNumber: 89,
                             columnNumber: 13
                         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
                             resData: restaurant
                         }, void 0, false, {
                             fileName: "src/componets/Body.js",
-                            lineNumber: 90,
+                            lineNumber: 91,
                             columnNumber: 13
                         }, undefined)
                     }, restaurant.info.id, false, {
                         fileName: "src/componets/Body.js",
-                        lineNumber: 83,
+                        lineNumber: 84,
                         columnNumber: 9
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/componets/Body.js",
-                lineNumber: 80,
+                lineNumber: 81,
                 columnNumber: 7
             }, undefined)
         ]
@@ -37670,14 +37671,51 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 const Contact = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "Contact Us"
-        }, void 0, false, {
-            fileName: "src/componets/Contact.js",
-            lineNumber: 5,
-            columnNumber: 13
-        }, undefined)
-    }, void 0, false, {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                className: "font-bold text-3xl p-4 m-4",
+                children: "Contact Us"
+            }, void 0, false, {
+                fileName: "src/componets/Contact.js",
+                lineNumber: 5,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "text",
+                        className: "border border-black p-2 m-2",
+                        placeholder: "message"
+                    }, void 0, false, {
+                        fileName: "src/componets/Contact.js",
+                        lineNumber: 7,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "text",
+                        className: "border border-black p-2 m-2",
+                        placeholder: "message"
+                    }, void 0, false, {
+                        fileName: "src/componets/Contact.js",
+                        lineNumber: 11,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "border p-2 m-2 rounded-lg hover: bg-gray-50",
+                        children: "submit"
+                    }, void 0, false, {
+                        fileName: "src/componets/Contact.js",
+                        lineNumber: 16,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/componets/Contact.js",
+                lineNumber: 6,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/componets/Contact.js",
         lineNumber: 4,
         columnNumber: 9
